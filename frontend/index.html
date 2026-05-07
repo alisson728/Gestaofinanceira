@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ERP Financeiro</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Dashboard Financeiro</h1>
+
+  <div class="top-actions">
+    <input type="month" id="mesFiltro">
+    <button onclick="abrirModal()">Novo lançamento</button>
+  </div>
+</div>
+
+<div class="cards">
+  <div class="card green">
+    <span>Receber</span>
+    <h2 id="receber">R$ 0,00</h2>
+  </div>
+
+  <div class="card red">
+    <span>Pagar</span>
+    <h2 id="pagar">R$ 0,00</h2>
+  </div>
+
+  <div class="card blue">
+    <span>Saldo</span>
+    <h2 id="saldo">R$ 0,00</h2>
+  </div>
+
+  <div class="card orange">
+    <span>Pendentes</span>
+    <h2 id="pendentes">0</h2>
+  </div>
+</div>
+
+<div class="box">
+  <h3>Resumo financeiro</h3>
+  <div class="grafico-wrap">
+    <canvas id="grafico"></canvas>
+  </div>
+</div>
+
+<div class="box">
+  <h3>Lançamentos</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Conta</th>
+        <th>Valor</th>
+        <th>Vencimento</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="modal hidden" id="modal">
+  <div class="modal-content">
+    <h2>Novo lançamento</h2>
+
+    <select id="tipo">
+      <option value="receber">Conta a receber</option>
+      <option value="pagar">Conta a pagar</option>
+    </select>
+
+    <input id="descricao" placeholder="Descrição">
+
+    <input id="valor" type="number" placeholder="Valor">
+
+    <input id="vencimento" type="date">
+
+    <button onclick="salvar()">Salvar</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
