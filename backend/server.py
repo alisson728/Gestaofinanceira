@@ -40,17 +40,21 @@ with conn() as c:
     c.commit()
 
 def enviar(msg):
+    print("TENTANDO ENVIAR WHATSAPP:", msg, flush=True)
 
     try:
-
-        client.messages.create(
+        envio = client.messages.create(
             from_='whatsapp:+14155238886',
             to='whatsapp:+554792445277',
             body=msg
         )
 
+        print("WHATSAPP ENVIADO:", envio.sid, envio.status, flush=True)
+        return True
+
     except Exception as e:
-        print(e)
+        print("ERRO WHATSAPP:", str(e), flush=True)
+        return False
 
 @app.route("/")
 def home():
