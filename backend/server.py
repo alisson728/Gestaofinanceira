@@ -12,7 +12,7 @@ DB = ROOT / "financeiro.db"
 app = Flask(__name__, static_folder=str(FRONTEND), static_url_path='')
 
 TWILIO_ACCOUNT_SID = "AC796300de2500d46d26dd1ddcc8395a4f"
-TWILIO_AUTH_TOKEN = "64e47a74337c15c075ca784b071a635b"
+TWILIO_AUTH_TOKEN = "f06c7e88bd05f8e732f9ffa7d4228caa"
 
 client = Client(
     TWILIO_ACCOUNT_SID,
